@@ -1,3 +1,4 @@
-# under progress
+# Django chat application
+
 
 ![](webchat.gif)
