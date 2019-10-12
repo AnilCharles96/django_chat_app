@@ -40,7 +40,7 @@ def LoginView(request):
             password = form.cleaned_data['password']
             auth = authenticate(username=username,password=password) 
             if auth:
-                login(request,auth)                
+                login(request,auth,backend='django.contrib.auth.backends.ModelBackend')                
                 return render(request,'base.html')          
     else:
         form = AuthForm()

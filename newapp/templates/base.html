@@ -29,6 +29,10 @@
                         {% else %}
 
                         <li class="nav-item">   
+                          <a class="nav-link " href="{% url 'chat:index' %}" tabindex="-1" aria-disabled="true">Chat</a>
+                        </li>
+
+                        <li class="nav-item">   
                           <a class="nav-link " href="{% url 'newapp:auth_logout' %}" tabindex="-1" aria-disabled="true">Logout</a>
                         </li>
 
