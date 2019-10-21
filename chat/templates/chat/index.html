@@ -1,14 +1,36 @@
 <!-- chat/templates/chat/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
-<html>
+<html>  
 <head>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
 </head>
-<body>
-    What chat room would you like to enter?<br/>
-    <input id="room-name-input" type="text" size="100"/><br/>
-    <input id="room-name-submit" type="button" value="Enter"/>
+<body>  
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <form>
+                            <div class="form-group">
+                                <h4>
+                                    What chat room would you like to enter?
+                                </h4>
+                            </div>
+                            <div class="form-group">
+                                <input id="room-name-input" class="form-control" type="text" size="40" placeholder="eg: abc"/>
+                            </div>          
+                            <div class="form-group">
+                                <input id="room-name-submit" class="btn btn-primary" type="button" value="Enter"/>
+                            </div>                          
+                        <form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
     <script>
         document.querySelector('#room-name-input').focus();
@@ -25,3 +47,4 @@
     </script>
 </body>
 </html>
+{% endblock %}

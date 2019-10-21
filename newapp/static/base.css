@@ -1,4 +1,3 @@
-.center_div{
-    margin: 0 auto;
-    width:10%
+.custom-size {
+    size: 100px;
 }

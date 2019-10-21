@@ -10,6 +10,8 @@ from django import forms
 from django.contrib import messages
 
 
+
+
 # Create your views here.
 def RegisterView(request):
 
@@ -31,20 +33,33 @@ def RegisterView(request):
 def HomeView(request):
     return render(request,'base.html')
 
+current_user = ''
+def LoginView(request):
 
-def LoginView(request):    
-    if request.method == 'POST':
-        form = AuthForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            auth = authenticate(username=username,password=password) 
-            if auth:
-                login(request,auth,backend='django.contrib.auth.backends.ModelBackend')                
-                return render(request,'base.html')          
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = AuthForm(request.POST)
+            if form.is_valid():
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+                auth = authenticate(username=username,password=password) 
+                if auth:             
+                    login(request,auth)                               
+                    return render(request,'base.html')          
+        else:
+            
+            form = AuthForm()
+
+        current_user = request.user.username 
+    
     else:
-        form = AuthForm()
+        return render(request,'base.html')
 
+
+    #current_user = request.user.username
+    print(current_user)
     return render(request,'login.html',{'form':form})
 
 
+def snippet(request):
+    return render(request,'snippet.html')

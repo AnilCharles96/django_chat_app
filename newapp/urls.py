@@ -11,7 +11,7 @@ urlpatterns = [
     path('',views.HomeView,name='home'),
     path('login/',views.LoginView,name="login"),
     path('accounts/logout/',auth_views.LogoutView.as_view(),{'next_page':'/'},name='auth_logout'),
-   
+    path('snippet/',views.snippet)
     
     
 ]
