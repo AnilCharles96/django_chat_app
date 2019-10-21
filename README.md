@@ -1,4 +1,4 @@
 # Django chat application
 
 
-![](django.gif)
+![](webchat.gif)
